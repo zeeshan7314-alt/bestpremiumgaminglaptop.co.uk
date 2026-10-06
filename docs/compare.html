@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Compare Gaming Laptops UK — Head-to-Head Benchmark Tool</title>
+<meta name="description" content="Compare any two gaming laptops side by side: benchmark scores, specs and UK prices with an instant verdict.">
+<link rel="canonical" href="https://bestpremiumgaminglaptop.co.uk/compare.html">
+<link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="brand" href="/">Best<span>Premium</span>GamingLaptop</a>
+<nav class="navlinks">
+<a href="/guides/best-premium-gaming-laptops-uk.html">Top 10</a>
+<a href="/guides/best-rtx-4070-laptops-uk.html">RTX 4070</a>
+<a href="/compare.html">Compare</a>
+<a href="/deals.html">Deals</a>
+<a href="/guides/how-to-choose-gaming-laptop.html">Buying Guide</a>
+</nav></div></header>
+<main class="wrap">
+
+<p class="breadcrumb"><a href="/">Home</a> / Compare</p>
+<div class="article"><h1>Gaming Laptop Comparison Tool (UK)</h1>
+<p class="lead">Pick any two laptops for a head-to-head verdict based on benchmark scores and UK prices.</p></div>
+<div class="comparebox">
+<div><select id="a"><option value="asus-rog-strix-g16-2026">ASUS ROG Strix G16 (2026) — £1,799</option><option value="lenovo-legion-pro-5">Lenovo Legion Pro 5 (2026) — £1,599</option><option value="alienware-m16-r2">Alienware m16 R2 — £1,899</option><option value="razer-blade-16">Razer Blade 16 (2026) — £2,999</option><option value="acer-predator-helios-neo-16">Acer Predator Helios Neo 16 — £1,299</option><option value="hp-omen-16">HP Omen 16 — £1,199</option><option value="msi-katana-15">MSI Katana 15 — £949</option><option value="asus-tuf-gaming-a15">ASUS TUF Gaming A15 — £899</option></select><div id="ca"></div></div>
+<div class="vs">VS</div>
+<div><select id="b"><option value="asus-rog-strix-g16-2026">ASUS ROG Strix G16 (2026) — £1,799</option><option value="lenovo-legion-pro-5">Lenovo Legion Pro 5 (2026) — £1,599</option><option value="alienware-m16-r2">Alienware m16 R2 — £1,899</option><option value="razer-blade-16">Razer Blade 16 (2026) — £2,999</option><option value="acer-predator-helios-neo-16">Acer Predator Helios Neo 16 — £1,299</option><option value="hp-omen-16">HP Omen 16 — £1,199</option><option value="msi-katana-15">MSI Katana 15 — £949</option><option value="asus-tuf-gaming-a15">ASUS TUF Gaming A15 — £899</option></select><div id="cb"></div></div>
+</div>
+<div id="verdict" class="verdict" style="display:none"></div>
+<script>
+const L={"asus-rog-strix-g16-2026": {"slug": "asus-rog-strix-g16-2026", "brand": "ASUS", "name": "ASUS ROG Strix G16 (2026)", "gpu": "NVIDIA RTX 4070 140W", "cpu": "Intel Core i9-14900HX", "ram": "16GB DDR5", "storage": "1TB NVMe SSD", "display": "16\" QHD 240Hz", "weight": "2.5 kg", "price": 1799, "index": 92, "ideal": "Serious 1440p gamers who want desktop-class power in a portable chassis.", "verdict": "The Strix G16 is the complete package: a full-power 140W RTX 4070, a blistering i9-14900HX and one of the best 240Hz panels in its class. It costs more than budget rivals, but the performance per pound is outstanding for a premium machine. If you can stretch to this price, it is the sweet spot of the premium tier.", "pros": ["Full 140W RTX 4070 \u2014 no power-limit compromises", "Excellent QHD 240Hz display with great colour", "Superb cooling for sustained performance", "Per-key RGB and premium build"], "cons": ["Premium price tag", "Battery life under 6 hours in normal use", "No OLED option at this price"]}, "lenovo-legion-pro-5": {"slug": "lenovo-legion-pro-5", "brand": "Lenovo", "name": "Lenovo Legion Pro 5 (2026)", "gpu": "NVIDIA RTX 4070 140W", "cpu": "AMD Ryzen 7 7745HX", "ram": "16GB DDR5", "storage": "1TB NVMe SSD", "display": "16\" QHD 240Hz", "weight": "2.5 kg", "price": 1599, "index": 90, "ideal": "Gamers who want RTX 4070 performance for less than ASUS/Alienware charge.", "verdict": "The Legion Pro 5 delivers roughly 95% of the Strix G16's gaming performance for \u00a3200 less. Lenovo's cooling is excellent, the keyboard is superb, and build quality feels a class above its price. For value-focused premium buyers, this is our top recommendation.", "pros": ["RTX 4070 performance at a mid-premium price", "Best-in-class keyboard", "Great thermals and quiet fans", "Clean, professional design"], "cons": ["Chunky 300W power brick", "Speakers are average", "Webcam is only 1080p"]}, "alienware-m16-r2": {"slug": "alienware-m16-r2", "brand": "Alienware", "name": "Alienware m16 R2", "gpu": "NVIDIA RTX 4070 140W", "cpu": "Intel Core i9-14900HX", "ram": "16GB DDR5", "storage": "1TB NVMe SSD", "display": "16\" QHD 240Hz", "weight": "2.6 kg", "price": 1899, "index": 91, "ideal": "Buyers who want the Alienware brand, premium materials and standout design.", "verdict": "The m16 R2 is a gorgeous machine with top-tier build quality and strong RTX 4070 performance. You pay an Alienware premium over the Legion Pro 5 for similar frames, but if design and brand matter to you, it earns its price.", "pros": ["Stunning premium design and materials", "Strong RTX 4070 + i9 performance", "Excellent display", "Great port selection"], "cons": ["Most expensive RTX 4070 laptop here", "Heavy for travel", "Premium price for similar performance to cheaper rivals"]}, "razer-blade-16": {"slug": "razer-blade-16", "brand": "Razer", "name": "Razer Blade 16 (2026)", "gpu": "NVIDIA RTX 4080 175W", "cpu": "Intel Core i9-14900HX", "ram": "16GB DDR5", "storage": "1TB NVMe SSD", "display": "16\" QHD 240Hz", "weight": "2.4 kg", "price": 2999, "index": 100, "ideal": "No-compromise buyers who want the thinnest, most premium RTX 4080 laptop.", "verdict": "The Blade 16 is the MacBook Pro of gaming laptops: CNC aluminium, impossibly thin for its power, and the fastest GPU here by a clear margin. It is wildly expensive, but nothing else combines this performance with this portability. Buy it if money is no object.", "pros": ["Fastest laptop here \u2014 RTX 4080 at 175W", "Incredible thin-and-light premium build", "Gorgeous display", "Best trackpad on a gaming laptop"], "cons": ["Very expensive", "Runs hot under full load", "Soldered RAM on some configs \u2014 check before buying"]}, "acer-predator-helios-neo-16": {"slug": "acer-predator-helios-neo-16", "brand": "Acer", "name": "Acer Predator Helios Neo 16", "gpu": "NVIDIA RTX 4060 105W", "cpu": "Intel Core i7-14700HX", "ram": "16GB DDR5", "storage": "1TB NVMe SSD", "display": "16\" QHD 165Hz", "weight": "2.8 kg", "price": 1299, "index": 78, "ideal": "Gamers stepping into premium territory without paying flagship prices.", "verdict": "The Helios Neo 16 is the gateway to premium gaming laptops: a proper i7 HX processor, RTX 4060 graphics and a sharp QHD 165Hz panel for \u00a31,299. It is heavier and plainer than rivals, but the spec sheet punches well above its price.", "pros": ["Great specs for the price", "QHD 165Hz display", "Upgradeable RAM and dual SSD slots", "Often discounted below \u00a31,200"], "cons": ["Plain, bulky design", "Fans get loud under load", "Average battery life"]}, "hp-omen-16": {"slug": "hp-omen-16", "brand": "HP", "name": "HP Omen 16", "gpu": "NVIDIA RTX 4060 105W", "cpu": "Intel Core i7-14700HX", "ram": "16GB DDR5", "storage": "1TB NVMe SSD", "display": "16.1\" FHD 165Hz", "weight": "2.4 kg", "price": 1199, "index": 76, "ideal": "Buyers who want a balanced, understated RTX 4060 laptop for work and play.", "verdict": "The Omen 16 is the sensible premium choice: restrained looks that work in an office, solid RTX 4060 gaming performance and HP's reliable UK support. The FHD panel is its weak spot at this price, but everything else is well judged.", "pros": ["Understated design suits work and play", "Solid build and thermals", "Good UK warranty support", "Competitive price"], "cons": ["Only a 1080p display at \u00a31,199", "No per-key RGB", "Speakers are weak"]}, "msi-katana-15": {"slug": "msi-katana-15", "brand": "MSI", "name": "MSI Katana 15", "gpu": "NVIDIA RTX 4050 105W", "cpu": "Intel Core i7-13620H", "ram": "16GB DDR5", "storage": "512GB NVMe SSD", "display": "15.6\" FHD 144Hz", "weight": "2.25 kg", "price": 949, "index": 62, "ideal": "Budget-conscious buyers who still want a proper gaming GPU.", "verdict": "The Katana 15 is the cheapest way into real gaming-laptop performance in the UK. The RTX 4050 with DLSS 3 handles 1080p high settings comfortably. Build quality is plasticky and the screen is basic, but at \u00a3949 nothing else comes close for gaming frames per pound.", "pros": ["Cheapest proper gaming laptop here", "RTX 4050 + DLSS 3 punches above its weight", "Light for a gaming laptop", "Great 1080p esports performance"], "cons": ["Plasticky build", "Basic 1080p 144Hz panel", "Loud fans", "512GB storage fills fast"]}, "asus-tuf-gaming-a15": {"slug": "asus-tuf-gaming-a15", "brand": "ASUS", "name": "ASUS TUF Gaming A15", "gpu": "NVIDIA RTX 4050 95W", "cpu": "AMD Ryzen 7 7735HS", "ram": "16GB DDR5", "storage": "512GB NVMe SSD", "display": "15.6\" FHD 144Hz", "weight": "2.2 kg", "price": 899, "index": 60, "ideal": "Students and first-time buyers who need durability on a budget.", "verdict": "The TUF A15 is the tough, affordable all-rounder: military-grade durability testing, efficient Ryzen chip and an RTX 4050 for \u00a3899. It will not win benchmark shootouts, but as a student or starter gaming laptop it is hard to beat.", "pros": ["Lowest price here", "Military-grade durability", "Efficient Ryzen CPU = better battery", "Good keyboard"], "cons": ["95W GPU is the slowest here", "Dim display by premium standards", "Noisy under load", "Limited port selection"]}};
+function card(s){const l=L[s];return `<div class="card"><h3>${l.name}</h3>
+<div class="specs">${l.gpu} · ${l.cpu} · ${l.ram}<br>${l.display} · ${l.weight}</div>
+<div class="scorebar"><i style="width:${l.index}%"></i></div>
+<div class="specs">Gaming score: <strong style="color:#fff">${l.index}/100</strong></div>
+<div class="price">£${l.price.toLocaleString()}</div></div>`}
+function val(s){const l=L[s];return (l.index/l.price*1000).toFixed(2)}
+function go(){const a=document.getElementById('a').value,b=document.getElementById('b').value;
+document.getElementById('ca').innerHTML=card(a);document.getElementById('cb').innerHTML=card(b);
+const la=L[a],lb=L[b],v=document.getElementById('verdict');v.style.display='block';
+let t;
+if(a===b){t="Pick two <em>different</em> laptops to compare."}
+else{const win=la.index===lb.index?"It's a tie on raw power — ":la.index>lb.index?`<strong>${la.name}</strong> wins on raw gaming power (${la.index} vs ${lb.index}). `:`<strong>${lb.name}</strong> wins on raw gaming power (${lb.index} vs ${la.index}). `;
+const va=val(a),vb=val(b);
+t=win+(va===vb?"Both offer identical value per pound.":va>vb?`For value, <strong>${la.name}</strong> gives more frames per pound (${va} vs ${vb}).`:`For value, <strong>${lb.name}</strong> gives more frames per pound (${vb} vs ${va}).`);}
+v.innerHTML="<h3>Verdict</h3><p>"+t+"</p>";}
+document.getElementById('a').addEventListener('change',go);
+document.getElementById('b').addEventListener('change',go);
+document.getElementById('b').selectedIndex=1;go();
+</script>
+</main>
+<footer><div class="wrap">
+<div class="cols">
+<div><h4>Top Guides</h4><ul>
+<li><a href="/guides/best-premium-gaming-laptops-uk.html">10 Best Premium Gaming Laptops UK</a></li>
+<li><a href="/guides/best-rtx-4070-laptops-uk.html">Best RTX 4070 Laptops UK</a></li>
+<li><a href="/guides/best-gaming-laptops-under-1000-uk.html">Best Gaming Laptops Under £1000</a></li>
+<li><a href="/guides/best-gaming-laptop-students-uk.html">Best for Students</a></li>
+</ul></div>
+<div><h4>Tools</h4><ul>
+<li><a href="/compare.html">Laptop Comparison Tool</a></li>
+<li><a href="/deals.html">UK Price Drops</a></li>
+<li><a href="/guides/how-to-choose-gaming-laptop.html">How to Choose</a></li>
+</ul></div>
+<div><h4>About</h4><ul>
+<li><a href="/about.html">About Us &amp; Methodology</a></li>
+<li><a href="/about.html#contact">Contact</a></li>
+</ul></div>
+</div>
+<div class="disclosure"><strong>Affiliate disclosure:</strong> BestPremiumGamingLaptop.co.uk is reader-supported. When you buy through links on our site we may earn an affiliate commission from Amazon UK, Currys and other retailers — at no extra cost to you. Prices shown are typical UK street prices and may change; always check the retailer's live price.</div>
+<p>&copy; 2026 Best Premium Gaming Laptop. All rights reserved. Made for UK gamers.</p>
+</div></footer>
+</body></html>

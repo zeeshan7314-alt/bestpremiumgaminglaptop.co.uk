@@ -1,0 +1,212 @@
+[
+  {
+    "slug": "asus-rog-strix-g16-2026",
+    "brand": "ASUS",
+    "name": "ASUS ROG Strix G16 (2026)",
+    "gpu": "NVIDIA RTX 4070 140W",
+    "cpu": "Intel Core i9-14900HX",
+    "ram": "16GB DDR5",
+    "storage": "1TB NVMe SSD",
+    "display": "16\" QHD 240Hz",
+    "weight": "2.5 kg",
+    "price": 1799,
+    "index": 92,
+    "ideal": "Serious 1440p gamers who want desktop-class power in a portable chassis.",
+    "verdict": "The Strix G16 is the complete package: a full-power 140W RTX 4070, a blistering i9-14900HX and one of the best 240Hz panels in its class. It costs more than budget rivals, but the performance per pound is outstanding for a premium machine. If you can stretch to this price, it is the sweet spot of the premium tier.",
+    "pros": [
+      "Full 140W RTX 4070 \u2014 no power-limit compromises",
+      "Excellent QHD 240Hz display with great colour",
+      "Superb cooling for sustained performance",
+      "Per-key RGB and premium build"
+    ],
+    "cons": [
+      "Premium price tag",
+      "Battery life under 6 hours in normal use",
+      "No OLED option at this price"
+    ]
+  },
+  {
+    "slug": "lenovo-legion-pro-5",
+    "brand": "Lenovo",
+    "name": "Lenovo Legion Pro 5 (2026)",
+    "gpu": "NVIDIA RTX 4070 140W",
+    "cpu": "AMD Ryzen 7 7745HX",
+    "ram": "16GB DDR5",
+    "storage": "1TB NVMe SSD",
+    "display": "16\" QHD 240Hz",
+    "weight": "2.5 kg",
+    "price": 1599,
+    "index": 90,
+    "ideal": "Gamers who want RTX 4070 performance for less than ASUS/Alienware charge.",
+    "verdict": "The Legion Pro 5 delivers roughly 95% of the Strix G16's gaming performance for \u00a3200 less. Lenovo's cooling is excellent, the keyboard is superb, and build quality feels a class above its price. For value-focused premium buyers, this is our top recommendation.",
+    "pros": [
+      "RTX 4070 performance at a mid-premium price",
+      "Best-in-class keyboard",
+      "Great thermals and quiet fans",
+      "Clean, professional design"
+    ],
+    "cons": [
+      "Chunky 300W power brick",
+      "Speakers are average",
+      "Webcam is only 1080p"
+    ]
+  },
+  {
+    "slug": "alienware-m16-r2",
+    "brand": "Alienware",
+    "name": "Alienware m16 R2",
+    "gpu": "NVIDIA RTX 4070 140W",
+    "cpu": "Intel Core i9-14900HX",
+    "ram": "16GB DDR5",
+    "storage": "1TB NVMe SSD",
+    "display": "16\" QHD 240Hz",
+    "weight": "2.6 kg",
+    "price": 1899,
+    "index": 91,
+    "ideal": "Buyers who want the Alienware brand, premium materials and standout design.",
+    "verdict": "The m16 R2 is a gorgeous machine with top-tier build quality and strong RTX 4070 performance. You pay an Alienware premium over the Legion Pro 5 for similar frames, but if design and brand matter to you, it earns its price.",
+    "pros": [
+      "Stunning premium design and materials",
+      "Strong RTX 4070 + i9 performance",
+      "Excellent display",
+      "Great port selection"
+    ],
+    "cons": [
+      "Most expensive RTX 4070 laptop here",
+      "Heavy for travel",
+      "Premium price for similar performance to cheaper rivals"
+    ]
+  },
+  {
+    "slug": "razer-blade-16",
+    "brand": "Razer",
+    "name": "Razer Blade 16 (2026)",
+    "gpu": "NVIDIA RTX 4080 175W",
+    "cpu": "Intel Core i9-14900HX",
+    "ram": "16GB DDR5",
+    "storage": "1TB NVMe SSD",
+    "display": "16\" QHD 240Hz",
+    "weight": "2.4 kg",
+    "price": 2999,
+    "index": 100,
+    "ideal": "No-compromise buyers who want the thinnest, most premium RTX 4080 laptop.",
+    "verdict": "The Blade 16 is the MacBook Pro of gaming laptops: CNC aluminium, impossibly thin for its power, and the fastest GPU here by a clear margin. It is wildly expensive, but nothing else combines this performance with this portability. Buy it if money is no object.",
+    "pros": [
+      "Fastest laptop here \u2014 RTX 4080 at 175W",
+      "Incredible thin-and-light premium build",
+      "Gorgeous display",
+      "Best trackpad on a gaming laptop"
+    ],
+    "cons": [
+      "Very expensive",
+      "Runs hot under full load",
+      "Soldered RAM on some configs \u2014 check before buying"
+    ]
+  },
+  {
+    "slug": "acer-predator-helios-neo-16",
+    "brand": "Acer",
+    "name": "Acer Predator Helios Neo 16",
+    "gpu": "NVIDIA RTX 4060 105W",
+    "cpu": "Intel Core i7-14700HX",
+    "ram": "16GB DDR5",
+    "storage": "1TB NVMe SSD",
+    "display": "16\" QHD 165Hz",
+    "weight": "2.8 kg",
+    "price": 1299,
+    "index": 78,
+    "ideal": "Gamers stepping into premium territory without paying flagship prices.",
+    "verdict": "The Helios Neo 16 is the gateway to premium gaming laptops: a proper i7 HX processor, RTX 4060 graphics and a sharp QHD 165Hz panel for \u00a31,299. It is heavier and plainer than rivals, but the spec sheet punches well above its price.",
+    "pros": [
+      "Great specs for the price",
+      "QHD 165Hz display",
+      "Upgradeable RAM and dual SSD slots",
+      "Often discounted below \u00a31,200"
+    ],
+    "cons": [
+      "Plain, bulky design",
+      "Fans get loud under load",
+      "Average battery life"
+    ]
+  },
+  {
+    "slug": "hp-omen-16",
+    "brand": "HP",
+    "name": "HP Omen 16",
+    "gpu": "NVIDIA RTX 4060 105W",
+    "cpu": "Intel Core i7-14700HX",
+    "ram": "16GB DDR5",
+    "storage": "1TB NVMe SSD",
+    "display": "16.1\" FHD 165Hz",
+    "weight": "2.4 kg",
+    "price": 1199,
+    "index": 76,
+    "ideal": "Buyers who want a balanced, understated RTX 4060 laptop for work and play.",
+    "verdict": "The Omen 16 is the sensible premium choice: restrained looks that work in an office, solid RTX 4060 gaming performance and HP's reliable UK support. The FHD panel is its weak spot at this price, but everything else is well judged.",
+    "pros": [
+      "Understated design suits work and play",
+      "Solid build and thermals",
+      "Good UK warranty support",
+      "Competitive price"
+    ],
+    "cons": [
+      "Only a 1080p display at \u00a31,199",
+      "No per-key RGB",
+      "Speakers are weak"
+    ]
+  },
+  {
+    "slug": "msi-katana-15",
+    "brand": "MSI",
+    "name": "MSI Katana 15",
+    "gpu": "NVIDIA RTX 4050 105W",
+    "cpu": "Intel Core i7-13620H",
+    "ram": "16GB DDR5",
+    "storage": "512GB NVMe SSD",
+    "display": "15.6\" FHD 144Hz",
+    "weight": "2.25 kg",
+    "price": 949,
+    "index": 62,
+    "ideal": "Budget-conscious buyers who still want a proper gaming GPU.",
+    "verdict": "The Katana 15 is the cheapest way into real gaming-laptop performance in the UK. The RTX 4050 with DLSS 3 handles 1080p high settings comfortably. Build quality is plasticky and the screen is basic, but at \u00a3949 nothing else comes close for gaming frames per pound.",
+    "pros": [
+      "Cheapest proper gaming laptop here",
+      "RTX 4050 + DLSS 3 punches above its weight",
+      "Light for a gaming laptop",
+      "Great 1080p esports performance"
+    ],
+    "cons": [
+      "Plasticky build",
+      "Basic 1080p 144Hz panel",
+      "Loud fans",
+      "512GB storage fills fast"
+    ]
+  },
+  {
+    "slug": "asus-tuf-gaming-a15",
+    "brand": "ASUS",
+    "name": "ASUS TUF Gaming A15",
+    "gpu": "NVIDIA RTX 4050 95W",
+    "cpu": "AMD Ryzen 7 7735HS",
+    "ram": "16GB DDR5",
+    "storage": "512GB NVMe SSD",
+    "display": "15.6\" FHD 144Hz",
+    "weight": "2.2 kg",
+    "price": 899,
+    "index": 60,
+    "ideal": "Students and first-time buyers who need durability on a budget.",
+    "verdict": "The TUF A15 is the tough, affordable all-rounder: military-grade durability testing, efficient Ryzen chip and an RTX 4050 for \u00a3899. It will not win benchmark shootouts, but as a student or starter gaming laptop it is hard to beat.",
+    "pros": [
+      "Lowest price here",
+      "Military-grade durability",
+      "Efficient Ryzen CPU = better battery",
+      "Good keyboard"
+    ],
+    "cons": [
+      "95W GPU is the slowest here",
+      "Dim display by premium standards",
+      "Noisy under load",
+      "Limited port selection"
+    ]
+  }
+]
