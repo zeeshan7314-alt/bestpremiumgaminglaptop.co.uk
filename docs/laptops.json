@@ -208,5 +208,109 @@
       "Noisy under load",
       "Limited port selection"
     ]
+  },
+  {
+    "slug": "lenovo-legion-slim-5",
+    "brand": "Lenovo",
+    "name": "Lenovo Legion Slim 5 (2026)",
+    "gpu": "NVIDIA RTX 4060 105W",
+    "cpu": "AMD Ryzen 7 7840HS",
+    "ram": "16GB DDR5",
+    "storage": "1TB NVMe SSD",
+    "display": "16\" QHD 165Hz",
+    "weight": "2.0 kg",
+    "price": 1449,
+    "index": 80,
+    "ideal": "Gamers who want premium performance in a thin, portable chassis.",
+    "verdict": "The Legion Slim 5 proves you don't need a 2.8kg brick for RTX 4060 gaming. At just 2.0kg with a lovely QHD panel, it's the premium traveller's choice. You pay extra for the thinness versus the Helios Neo 16, but the portability is genuinely worth it.",
+    "pros": [
+      "Thin and light at just 2.0kg",
+      "Beautiful QHD 165Hz display",
+      "Efficient Ryzen chip, decent battery",
+      "Premium aluminium build"
+    ],
+    "cons": [
+      "Costs more than thicker RTX 4060 rivals",
+      "Soldered RAM \u2014 can't upgrade later",
+      "Runs warm in thin chassis"
+    ]
+  },
+  {
+    "slug": "gigabyte-aorus-15",
+    "brand": "Gigabyte",
+    "name": "Gigabyte Aorus 15",
+    "gpu": "NVIDIA RTX 4070 140W",
+    "cpu": "Intel Core i7-13700H",
+    "ram": "16GB DDR5",
+    "storage": "1TB NVMe SSD",
+    "display": "15.6\" QHD 165Hz",
+    "weight": "2.4 kg",
+    "price": 1549,
+    "index": 85,
+    "ideal": "Buyers hunting the cheapest full-power RTX 4070 laptop in the UK.",
+    "verdict": "The Aorus 15 is the price-breaker: a full 140W RTX 4070 for \u00a31,549, undercutting every big brand. Gigabyte's software and support aren't as polished as Lenovo or ASUS, but for pure frames per pound at the premium tier, little touches it.",
+    "pros": [
+      "Cheapest full-power RTX 4070",
+      "Strong QHD 165Hz panel",
+      "Good upgradeability",
+      "Mechanical-feel keyboard"
+    ],
+    "cons": [
+      "Software is clunky",
+      "Average battery life",
+      "Support network smaller in the UK"
+    ]
+  },
+  {
+    "slug": "dell-g16",
+    "brand": "Dell",
+    "name": "Dell G16 (2026)",
+    "gpu": "NVIDIA RTX 4060 105W",
+    "cpu": "Intel Core i7-13700H",
+    "ram": "16GB DDR5",
+    "storage": "512GB NVMe SSD",
+    "display": "16\" QHD 165Hz",
+    "weight": "2.7 kg",
+    "price": 1099,
+    "index": 72,
+    "ideal": "Budget-premium buyers who want a QHD screen with RTX 4060 power.",
+    "verdict": "The Dell G16 sneaks a QHD 165Hz display and RTX 4060 into a \u00a31,099 chassis \u2014 a combination nobody else offers this cheap. It's heavy and the 512GB SSD is tight, but as a value play it's superb.",
+    "pros": [
+      "QHD 165Hz at this price is unmatched",
+      "Solid RTX 4060 performance",
+      "Sturdy build",
+      "Often discounted under \u00a31,000"
+    ],
+    "cons": [
+      "Heavy at 2.7kg",
+      "Only 512GB storage",
+      "Chunky bezels look dated"
+    ]
+  },
+  {
+    "slug": "msi-stealth-16-studio",
+    "brand": "MSI",
+    "name": "MSI Stealth 16 Studio",
+    "gpu": "NVIDIA RTX 4070 105W",
+    "cpu": "Intel Core i7-13700H",
+    "ram": "32GB DDR5",
+    "storage": "1TB NVMe SSD",
+    "display": "16\" QHD 240Hz Mini-LED",
+    "weight": "1.99 kg",
+    "price": 1999,
+    "index": 88,
+    "ideal": "Creators and professionals who game \u2014 a workstation that plays.",
+    "verdict": "The Stealth 16 Studio is the creator's gaming laptop: 32GB RAM, colour-accurate Mini-LED display and RTX 4070 muscle in a sub-2kg magnesium body. It's pricey and the 105W GPU trails full-power rivals, but nothing else blends work and play this elegantly.",
+    "pros": [
+      "Stunning Mini-LED display",
+      "32GB RAM for creative work",
+      "Under 2kg \u2014 incredibly portable",
+      "Professional looks"
+    ],
+    "cons": [
+      "105W GPU slower than 140W rivals",
+      "Expensive",
+      "Fans audible in quiet offices"
+    ]
   }
 ]

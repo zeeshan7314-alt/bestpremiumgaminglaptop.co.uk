@@ -70,6 +70,34 @@ LAPTOPS = [
       verdict="The TUF A15 is the tough, affordable all-rounder: military-grade durability testing, efficient Ryzen chip and an RTX 4050 for £899. It will not win benchmark shootouts, but as a student or starter gaming laptop it is hard to beat.",
       pros=["Lowest price here","Military-grade durability","Efficient Ryzen CPU = better battery","Good keyboard"],
       cons=["95W GPU is the slowest here","Dim display by premium standards","Noisy under load","Limited port selection"]),
+ dict(slug="lenovo-legion-slim-5", brand="Lenovo", name="Lenovo Legion Slim 5 (2026)",
+      gpu="NVIDIA RTX 4060 105W", cpu="AMD Ryzen 7 7840HS", ram="16GB DDR5", storage="1TB NVMe SSD",
+      display='16" QHD 165Hz', weight="2.0 kg", price=1449, index=80,
+      ideal="Gamers who want premium performance in a thin, portable chassis.",
+      verdict="The Legion Slim 5 proves you don't need a 2.8kg brick for RTX 4060 gaming. At just 2.0kg with a lovely QHD panel, it's the premium traveller's choice. You pay extra for the thinness versus the Helios Neo 16, but the portability is genuinely worth it.",
+      pros=["Thin and light at just 2.0kg","Beautiful QHD 165Hz display","Efficient Ryzen chip, decent battery","Premium aluminium build"],
+      cons=["Costs more than thicker RTX 4060 rivals","Soldered RAM — can't upgrade later","Runs warm in thin chassis"]),
+ dict(slug="gigabyte-aorus-15", brand="Gigabyte", name="Gigabyte Aorus 15",
+      gpu="NVIDIA RTX 4070 140W", cpu="Intel Core i7-13700H", ram="16GB DDR5", storage="1TB NVMe SSD",
+      display='15.6" QHD 165Hz', weight="2.4 kg", price=1549, index=85,
+      ideal="Buyers hunting the cheapest full-power RTX 4070 laptop in the UK.",
+      verdict="The Aorus 15 is the price-breaker: a full 140W RTX 4070 for £1,549, undercutting every big brand. Gigabyte's software and support aren't as polished as Lenovo or ASUS, but for pure frames per pound at the premium tier, little touches it.",
+      pros=["Cheapest full-power RTX 4070","Strong QHD 165Hz panel","Good upgradeability","Mechanical-feel keyboard"],
+      cons=["Software is clunky","Average battery life","Support network smaller in the UK"]),
+ dict(slug="dell-g16", brand="Dell", name="Dell G16 (2026)",
+      gpu="NVIDIA RTX 4060 105W", cpu="Intel Core i7-13700H", ram="16GB DDR5", storage="512GB NVMe SSD",
+      display='16" QHD 165Hz', weight="2.7 kg", price=1099, index=72,
+      ideal="Budget-premium buyers who want a QHD screen with RTX 4060 power.",
+      verdict="The Dell G16 sneaks a QHD 165Hz display and RTX 4060 into a £1,099 chassis — a combination nobody else offers this cheap. It's heavy and the 512GB SSD is tight, but as a value play it's superb.",
+      pros=["QHD 165Hz at this price is unmatched","Solid RTX 4060 performance","Sturdy build","Often discounted under £1,000"],
+      cons=["Heavy at 2.7kg","Only 512GB storage","Chunky bezels look dated"]),
+ dict(slug="msi-stealth-16-studio", brand="MSI", name="MSI Stealth 16 Studio",
+      gpu="NVIDIA RTX 4070 105W", cpu="Intel Core i7-13700H", ram="32GB DDR5", storage="1TB NVMe SSD",
+      display='16" QHD 240Hz Mini-LED', weight="1.99 kg", price=1999, index=88,
+      ideal="Creators and professionals who game — a workstation that plays.",
+      verdict="The Stealth 16 Studio is the creator's gaming laptop: 32GB RAM, colour-accurate Mini-LED display and RTX 4070 muscle in a sub-2kg magnesium body. It's pricey and the 105W GPU trails full-power rivals, but nothing else blends work and play this elegantly.",
+      pros=["Stunning Mini-LED display","32GB RAM for creative work","Under 2kg — incredibly portable","Professional looks"],
+      cons=["105W GPU slower than 140W rivals","Expensive","Fans audible in quiet offices"]),
 ]
 
 def amz_link(lap):
@@ -80,7 +108,74 @@ def currys_link(lap):
     q = html.escape(lap["name"].replace(" ", "%20"))
     return f'https://www.currys.co.uk/search?q={q}'
 
+# ------------------------------------------------- generic guides ----
+GUIDES = [
+ dict(slug="best-rtx-4060-laptops-uk", nav="RTX 4060",
+      title="Best RTX 4060 Laptops in the UK (2026)",
+      meta="The best RTX 4060 gaming laptops in the UK for 2026 — perfect 1080p/1440p picks ranked by benchmarks and UK prices.",
+      lead="The RTX 4060 is the UK's most popular gaming GPU for good reason: it handles 1080p ultra and 1440p medium-high with ease, sips power, and keeps prices sane. These are the best RTX 4060 laptops you can buy right now.",
+      picks=["acer-predator-helios-neo-16","hp-omen-16","lenovo-legion-slim-5","dell-g16"],
+      tips=[("Check TGP wattage","A 105W RTX 4060 is ~10% faster than a 90W one with the same name. Our picks are all 100W+."),
+            ("1080p vs 1440p","The 4060 is ideal for 1080p high-refresh; it's capable at 1440p with DLSS enabled."),
+            ("8GB VRAM limit","Fine for 2026's games at 1080p, but don't expect 4K. For 1440p ultra, step up to our <a href='/guides/best-rtx-4070-laptops-uk.html'>RTX 4070 picks</a>.")],
+      faqs=[("Is RTX 4060 enough for gaming in 2026?","Yes for 1080p — it runs AAA titles at high settings above 60fps, and DLSS 3 extends its life considerably."),
+            ("RTX 4060 vs RTX 4070 laptop — which should I buy?","The 4070 is ~20-25% faster and better for 1440p, but costs £300-400 more. For 1080p gaming, the 4060 is the smarter buy.")]),
+ dict(slug="best-oled-gaming-laptops-uk", nav="OLED",
+      title="Best OLED Gaming Laptops in the UK (2026)",
+      meta="The best OLED gaming laptops in the UK — stunning contrast and response times for gamers who want the best display.",
+      lead="OLED is the biggest visible upgrade you can buy: perfect blacks, instant response times and colours that make LCDs look washed out. These are the best OLED gaming laptops available in the UK.",
+      picks=["razer-blade-16","msi-stealth-16-studio","lenovo-legion-slim-5"],
+      tips=[("Burn-in worry?","Modern OLED panels have pixel-shift and panel refresh features. For mixed use (gaming + work), burn-in risk is low — but don't leave static windows open 24/7."),
+            ("Brightness","OLEDs typically peak lower than Mini-LED LCDs. If you game in bright rooms, the Stealth 16's Mini-LED is the safer pick.")],
+      faqs=[("Are OLED laptops good for gaming?","Yes — near-instant response times eliminate motion blur, and HDR gaming looks dramatically better than on LCD."),
+            ("Do OLED gaming laptops cost more?","Typically £200-400 more than LCD equivalents. Worth it if display quality matters to you.")]),
+ dict(slug="best-vr-ready-laptops-uk", nav="VR-Ready",
+      title="Best VR-Ready Gaming Laptops in the UK (2026)",
+      meta="The best VR-ready gaming laptops in the UK for Meta Quest 3, Valve Index and PCVR — ranked by GPU power and ports.",
+      lead="PCVR demands serious, sustained GPU power — and the right ports. These laptops meet or beat the recommended specs for Meta Quest 3 (via Link), Valve Index and other PCVR headsets.",
+      picks=["razer-blade-16","asus-rog-strix-g16-2026","alienware-m16-r2","lenovo-legion-pro-5"],
+      tips=[("GPU is everything in VR","VR renders two high-res views at 90fps+. RTX 4070 is the realistic minimum; RTX 4080 is ideal."),
+            ("Ports matter","You need USB-C with DisplayPort alt-mode or HDMI 2.1 for headset link cables. All our picks have them — cheap laptops often don't.")],
+      faqs=[("Can an RTX 4060 laptop run VR?","It meets minimum specs for Quest Link, but expect lowered settings. For a good experience, RTX 4070 or better is recommended."),
+            ("Do I need a special cable?","For Quest 3, a USB-C Link cable (or good Wi-Fi 6E for wireless). Valve Index needs DisplayPort — check the laptop has it.")]),
+ dict(slug="best-esports-gaming-laptops-uk", nav="Esports",
+      title="Best Esports Gaming Laptops in the UK (2026)",
+      meta="The best esports gaming laptops in the UK for Valorant, CS2, Fortnite and League of Legends — high refresh, low latency.",
+      lead="Esports is about frames and latency, not ray tracing. These laptops pair high-refresh displays (165Hz+) with CPUs and GPUs tuned for maximum FPS in competitive titles.",
+      picks=["asus-rog-strix-g16-2026","lenovo-legion-pro-5","msi-katana-15","asus-tuf-gaming-a15"],
+      tips=[("Refresh rate > resolution","For esports, a 1080p 240Hz panel beats a 4K 60Hz panel every time. Our top picks all run 165Hz+."),
+            ("CPU matters too","Valorant and CS2 are CPU-heavy. HX-series processors (i9-14900HX, Ryzen 7745HX) hold high frame rates when it counts.")],
+      faqs=[("What FPS do I need for esports?","144fps minimum to match a 144Hz display; 240fps+ if you own a 240Hz panel. All our picks exceed 200fps in Valorant/CS2 at competitive settings."),
+            ("Is a budget laptop enough for esports?","Yes — the Katana 15 and TUF A15 push 200+ fps in Valorant and Fortnite at 1080p for under £950.")]),
+ dict(slug="asus-vs-lenovo-gaming-laptops-uk", nav="ASUS vs Lenovo",
+      title="ASUS ROG vs Lenovo Legion: Which Gaming Laptop Brand is Best in the UK? (2026)",
+      meta="ASUS ROG vs Lenovo Legion in the UK — build quality, thermals, support and value compared to help you choose.",
+      lead="The two biggest names in gaming laptops, head to head. We compare ASUS ROG and Lenovo Legion on performance, thermals, build, UK support and value — so you buy the right brand, not just the right specs.",
+      picks=["asus-rog-strix-g16-2026","lenovo-legion-pro-5","asus-tuf-gaming-a15","lenovo-legion-slim-5"],
+      tips=[("Thermals","Both are excellent. Legion's cooling is slightly quieter; ROG pushes higher sustained clocks."),
+            ("UK support","Lenovo's UK on-site warranty options are superb. ASUS support is good but RMA centres are fewer."),
+            ("Value","Lenovo usually gives you more spec per pound; ASUS charges a premium for design and features like per-key RGB.")],
+      faqs=[("Which is better: ASUS ROG or Lenovo Legion?","For raw value, Legion wins — similar performance for less money. For premium features and design, ROG edges ahead."),
+            ("Which brand is more reliable?","Both rank highly in reliability surveys. Buy based on the specific model's thermals and the warranty offered.")]),
+]
+
+def page_generic_guide(g):
+    by = {l["slug"]: l for l in LAPTOPS}
+    picks = [by[s] for s in g["picks"] if s in by]
+    cards = "".join(laptop_card(l, i+1) for i, l in enumerate(picks))
+    tips = "".join(f"<h3>{html.escape(t)}</h3><p>{d}</p>" for t, d in g["tips"])
+    faqs = "".join(f"<details><summary>{html.escape(q)}</summary><p>{a}</p></details>" for q, a in g["faqs"])
+    body = f"""
+<p class="breadcrumb"><a href="/">Home</a> / Guides / {html.escape(g['nav'])}</p>
+<div class="article"><h1>{html.escape(g['title'])}</h1>
+<p class="lead">{html.escape(g['lead'])}</p></div>
+<div class="section" style="padding-top:10px"><div class="grid">{cards}</div></div>
+<div class="article"><h2>Buying Tips</h2>{tips}
+<div class="faq"><h2>FAQs</h2>{faqs}</div></div>"""
+    return base(g["title"] + " — BestPremiumGamingLaptop.co.uk", g["meta"], body, f"/guides/{g['slug']}.html")
+
 # ------------------------------------------------------------ templates ----
+
 def base(title, desc, body, canonical="/"):
     return f"""<!DOCTYPE html>
 <html lang="en-GB">
@@ -112,6 +207,11 @@ def base(title, desc, body, canonical="/"):
 <li><a href="/guides/best-rtx-4070-laptops-uk.html">Best RTX 4070 Laptops UK</a></li>
 <li><a href="/guides/best-gaming-laptops-under-1000-uk.html">Best Gaming Laptops Under £1000</a></li>
 <li><a href="/guides/best-gaming-laptop-students-uk.html">Best for Students</a></li>
+<li><a href="/guides/best-rtx-4060-laptops-uk.html">Best RTX 4060 Laptops</a></li>
+<li><a href="/guides/best-oled-gaming-laptops-uk.html">Best OLED Gaming Laptops</a></li>
+<li><a href="/guides/best-vr-ready-laptops-uk.html">Best VR-Ready Laptops</a></li>
+<li><a href="/guides/best-esports-gaming-laptops-uk.html">Best Esports Laptops</a></li>
+<li><a href="/guides/asus-vs-lenovo-gaming-laptops-uk.html">ASUS vs Lenovo</a></li>
 </ul></div>
 <div><h4>Tools</h4><ul>
 <li><a href="/compare.html">Laptop Comparison Tool</a></li>
@@ -409,6 +509,8 @@ def main():
     }
     for lap in LAPTOPS:
         pages[f"/reviews/{lap['slug']}.html"] = page_review(lap)
+    for g in GUIDES:
+        pages[f"/guides/{g['slug']}.html"] = page_generic_guide(g)
     for p, c in pages.items():
         write(p, c)
     # laptops.json for the compare tool / future use
