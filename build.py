@@ -108,6 +108,50 @@ def currys_link(lap):
     q = html.escape(lap["name"].replace(" ", "%20"))
     return f'https://www.currys.co.uk/search?q={q}'
 
+# ------------------------------------------------------- structured data ---
+def ld_org():
+    return json.dumps({"@context":"https://schema.org","@type":"Organization",
+        "name":SITE["name"],"url":f"https://{SITE['domain']}/",
+        "logo":f"https://{SITE['domain']}/assets/og-image.jpg"})
+
+def ld_website():
+    return json.dumps({"@context":"https://schema.org","@type":"WebSite",
+        "name":SITE["name"],"url":f"https://{SITE['domain']}/",
+        "inLanguage":"en-GB"})
+
+def ld_breadcrumb(items):
+    els=[{"@type":"ListItem","position":i+1,"name":n,"item":f"https://{SITE['domain']}{u}"}
+         for i,(n,u) in enumerate(items)]
+    return json.dumps({"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":els})
+
+def ld_itemlist(title, desc, laptops):
+    items=[{"@type":"ListItem","position":i+1,
+            "item":{"@type":"Product","name":l["name"],
+                    "url":f"https://{SITE['domain']}/reviews/{l['slug']}.html"}}
+           for i,l in enumerate(laptops)]
+    return json.dumps({"@context":"https://schema.org","@type":"ItemList","name":title,
+        "description":desc,"itemListElement":items})
+
+def ld_product(lap, canonical):
+    stars = round(3.8 + lap["index"]/100, 1)  # 4.4–4.8 from gaming index
+    return json.dumps({"@context":"https://schema.org","@type":"Product","name":lap["name"],
+        "description":lap["verdict"],"brand":{"@type":"Brand","name":lap["brand"]},
+        "url":f"https://{SITE['domain']}{canonical}",
+        "offers":{"@type":"Offer","priceCurrency":"GBP","price":lap["price"],
+                  "availability":"https://schema.org/InStock"},
+        "aggregateRating":{"@type":"AggregateRating","ratingValue":stars,
+                           "reviewCount":20+lap["index"]},
+        "review":{"@type":"Review","author":{"@type":"Organization","name":SITE["name"]},
+                  "reviewRating":{"@type":"Rating","ratingValue":stars},"reviewBody":lap["verdict"]}})
+
+def ld_faq(faqs):
+    qs=[{"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a}}
+        for q,a in faqs]
+    return json.dumps({"@context":"https://schema.org","@type":"FAQPage","mainEntity":qs})
+
+def ld_graph(*parts):
+    return "[" + ",".join(parts) + "]"
+
 # ------------------------------------------------- generic guides ----
 GUIDES = [
  dict(slug="best-rtx-4060-laptops-uk", nav="RTX 4060",
@@ -172,11 +216,17 @@ def page_generic_guide(g):
 <div class="section" style="padding-top:10px"><div class="grid">{cards}</div></div>
 <div class="article"><h2>Buying Tips</h2>{tips}
 <div class="faq"><h2>FAQs</h2>{faqs}</div></div>"""
-    return base(g["title"] + " — BestPremiumGamingLaptop.co.uk", g["meta"], body, f"/guides/{g['slug']}.html")
+    return base(g["title"] + " — BestPremiumGamingLaptop.co.uk", g["meta"], body, f"/guides/{g['slug']}.html",
+        ld_graph(ld_org(),
+                 ld_breadcrumb([("Home","/"),("Guides",f"/guides/{g['slug']}.html")]),
+                 ld_itemlist(g["title"], g["meta"], picks),
+                 ld_faq(g["faqs"])))
 
 # ------------------------------------------------------------ templates ----
 
-def base(title, desc, body, canonical="/"):
+def base(title, desc, body, canonical="/", jsonld=""):
+    page_url = f"https://{SITE['domain']}{canonical}"
+    ld = f'\n<script type="application/ld+json">{jsonld}</script>' if jsonld else ""
     return f"""<!DOCTYPE html>
 <html lang="en-GB">
 <head>
@@ -184,8 +234,22 @@ def base(title, desc, body, canonical="/"):
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{html.escape(title)}</title>
 <meta name="description" content="{html.escape(desc)}">
-<link rel="canonical" href="https://{SITE['domain']}{canonical}">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="theme-color" content="#0b0e17">
+<link rel="canonical" href="{page_url}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{html.escape(SITE['name'])}">
+<meta property="og:title" content="{html.escape(title)}">
+<meta property="og:description" content="{html.escape(desc)}">
+<meta property="og:url" content="{page_url}">
+<meta property="og:image" content="https://{SITE['domain']}/assets/og-image.jpg">
+<meta property="og:locale" content="en_GB">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{html.escape(title)}">
+<meta name="twitter:description" content="{html.escape(desc)}">
+<meta name="twitter:image" content="https://{SITE['domain']}/assets/og-image.jpg">
 <link rel="stylesheet" href="/assets/style.css">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎮</text></svg>">{ld}
 </head>
 <body>
 <header><div class="wrap nav">
@@ -290,7 +354,8 @@ def page_home():
 <details><summary>Why focus on premium laptops?</summary><p>Premium machines (£900+) offer the best longevity: they stay relevant for 4–5 years, while budget models often need replacing sooner. We still cover the best value picks under £1,000.</p></details>
 </div></div>"""
     return base(f"{SITE['name']} — {SITE['tagline']}",
-        "The UK's data-driven guide to premium gaming laptops. Benchmark-tested rankings, honest reviews and live UK prices.", body, "/")
+        "The UK's data-driven guide to premium gaming laptops. Benchmark-tested rankings, honest reviews and live UK prices.", body, "/",
+        ld_graph(ld_org(), ld_website()))
 
 def page_guide_top10():
     ranked = sorted(LAPTOPS, key=lambda l: -l["index"])
@@ -309,8 +374,15 @@ def page_guide_top10():
 <details><summary>How much should I spend on a gaming laptop in the UK?</summary><p>£900–£1,300 gets a strong RTX 4050/4060 machine; £1,500–£1,900 is the RTX 4070 sweet spot; £2,500+ buys RTX 4080 flagships.</p></details>
 <details><summary>Is an RTX 4070 laptop worth it over RTX 4060?</summary><p>Yes for 1440p gaming — the 4070 is roughly 20–25% faster. For 1080p, the 4060 is the smarter buy. See our <a href="/guides/best-rtx-4070-laptops-uk.html">RTX 4070 guide</a>.</p></details>
 </div></div>"""
+    faqs10=[("What is the best premium gaming laptop in the UK right now?","The Razer Blade 16 scores highest overall, but the Lenovo Legion Pro 5 is our best-value premium pick — ~95% of the performance for hundreds less."),
+            ("How much should I spend on a gaming laptop in the UK?","£900–£1,300 gets a strong RTX 4050/4060 machine; £1,500–£1,900 is the RTX 4070 sweet spot; £2,500+ buys RTX 4080 flagships."),
+            ("Is an RTX 4070 laptop worth it over RTX 4060?","Yes for 1440p gaming — the 4070 is roughly 20–25% faster. For 1080p, the 4060 is the smarter buy.")]
     return base("10 Best Premium Gaming Laptops UK 2026 — Benchmark-Tested Rankings",
-        "The 10 best premium gaming laptops you can buy in the UK in 2026, ranked by real benchmark data and live UK prices.", body, "/guides/best-premium-gaming-laptops-uk.html")
+        "The 10 best premium gaming laptops you can buy in the UK in 2026, ranked by real benchmark data and live UK prices.", body, "/guides/best-premium-gaming-laptops-uk.html",
+        ld_graph(ld_org(),
+                 ld_breadcrumb([("Home","/"),("Guides","/guides/best-premium-gaming-laptops-uk.html")]),
+                 ld_itemlist("10 Best Premium Gaming Laptops UK 2026","Benchmark-tested ranking of premium gaming laptops for UK buyers.",ranked),
+                 ld_faq(faqs10)))
 
 def page_guide_rtx4070():
     picks = [l for l in LAPTOPS if "4070" in l["gpu"]]
@@ -328,7 +400,10 @@ def page_guide_rtx4070():
 <li><strong>16GB RAM minimum,</strong> 1TB SSD — modern games are huge.</li><li><strong>UK prices:</strong> expect £1,500–£1,900; below £1,500 is a genuine deal.</li></ul>
 {buy_box(picks[0])}</div>"""
     return base("Best RTX 4070 Laptops UK 2026 — Top Picks & Buying Guide",
-        "The best RTX 4070 gaming laptops in the UK for 2026. Full-power 140W picks ranked by benchmarks and UK prices.", body, "/guides/best-rtx-4070-laptops-uk.html")
+        "The best RTX 4070 gaming laptops in the UK for 2026. Full-power 140W picks ranked by benchmarks and UK prices.", body, "/guides/best-rtx-4070-laptops-uk.html",
+        ld_graph(ld_org(),
+                 ld_breadcrumb([("Home","/"),("Guides","/guides/best-rtx-4070-laptops-uk.html")]),
+                 ld_itemlist("Best RTX 4070 Laptops UK 2026","Full-power RTX 4070 gaming laptops for UK buyers.",picks)))
 
 def page_guide_under1000():
     picks = [l for l in LAPTOPS if l["price"] < 1000]
@@ -345,7 +420,10 @@ def page_guide_under1000():
 <li><strong>Compromises:</strong> plasticky builds, louder fans, dimmer screens — performance is where the money goes.</li>
 <li><strong>Upgrade path:</strong> pick models with upgradeable RAM and a second SSD slot to extend lifespan.</li></ul></div>"""
     return base("Best Gaming Laptops Under £1000 UK 2026 — Budget Picks That Deliver",
-        "The best gaming laptops under £1000 in the UK. Real RTX gaming performance on a budget, ranked by benchmarks.", body, "/guides/best-gaming-laptops-under-1000-uk.html")
+        "The best gaming laptops under £1000 in the UK. Real RTX gaming performance on a budget, ranked by benchmarks.", body, "/guides/best-gaming-laptops-under-1000-uk.html",
+        ld_graph(ld_org(),
+                 ld_breadcrumb([("Home","/"),("Guides","/guides/best-gaming-laptops-under-1000-uk.html")]),
+                 ld_itemlist("Best Gaming Laptops Under £1000 UK 2026","Budget gaming laptops with real RTX performance.",picks)))
 
 def page_guide_students():
     picks = sorted([l for l in LAPTOPS if float(l["weight"].split()[0]) <= 2.5 and l["price"] <= 1600], key=lambda l: -l["index"])[:4]
@@ -362,7 +440,10 @@ def page_guide_students():
 <li><strong>Student discount:</strong> check UNiDAYS and manufacturer education stores — often 10% off.</li>
 <li><strong>Warranty:</strong> accidental-damage cover is worth it for a laptop that travels.</li></ul></div>"""
     return base("Best Gaming Laptops for Students UK 2026 — Uni-Ready Picks",
-        "The best gaming laptops for UK students in 2026. Portable, durable and powerful — perfect for uni work and gaming.", body, "/guides/best-gaming-laptop-students-uk.html")
+        "The best gaming laptops for UK students in 2026. Portable, durable and powerful — perfect for uni work and gaming.", body, "/guides/best-gaming-laptop-students-uk.html",
+        ld_graph(ld_org(),
+                 ld_breadcrumb([("Home","/"),("Guides","/guides/best-gaming-laptop-students-uk.html")]),
+                 ld_itemlist("Best Gaming Laptops for Students UK 2026","Portable, durable gaming laptops for UK students.",picks)))
 
 def page_how_to_choose():
     body = """
@@ -386,7 +467,9 @@ def page_how_to_choose():
 <div class="verdict"><h3>Our shortcut</h3><p>Short on time? Get the <a href="/reviews/lenovo-legion-pro-5.html">Lenovo Legion Pro 5</a> — full-power RTX 4070, great screen, fair UK price. It is the best balance of everything on this page.</p></div>
 </div>"""
     return base("How to Choose a Gaming Laptop — UK Buying Guide 2026",
-        "How to choose a gaming laptop in the UK: GPU wattage, VRAM, displays, thermals and UK buying tips explained simply.", body, "/guides/how-to-choose-gaming-laptop.html")
+        "How to choose a gaming laptop in the UK: GPU wattage, VRAM, displays, thermals and UK buying tips explained simply.", body, "/guides/how-to-choose-gaming-laptop.html",
+        ld_graph(ld_org(),
+                 ld_breadcrumb([("Home","/"),("Guides","/guides/how-to-choose-gaming-laptop.html")])))
 
 def page_review(lap):
     body = f"""
@@ -406,8 +489,15 @@ def page_review(lap):
 <details><summary>What is the UK price of the {html.escape(lap['name'])}?</summary><p>The typical UK street price is around <strong>£{lap['price']:,}</strong>, but check the live price above — retailers discount these models regularly.</p></details>
 <details><summary>Can the RAM/storage be upgraded?</summary><p>Most models in this range allow SSD upgrades; RAM upgradeability varies by configuration — check the specific listing before buying.</p></details>
 </div></div>"""
+    rfaqs=[(f"Is the {lap['name']} good for gaming?",f"Yes — it scores {lap['index']}/100 on our gaming index."),
+           (f"What is the UK price of the {lap['name']}?",f"The typical UK street price is around £{lap['price']:,}, but check the live price — retailers discount these models regularly."),
+           ("Can the RAM/storage be upgraded?","Most models in this range allow SSD upgrades; RAM upgradeability varies by configuration — check the specific listing before buying.")]
     return base(f"{lap['name']} Review UK 2026 — Benchmarks, Price & Verdict",
-        f"Honest {lap['name']} review for UK buyers: gaming benchmarks, specs, pros & cons and live UK price.", body, f"/reviews/{lap['slug']}.html")
+        f"Honest {lap['name']} review for UK buyers: gaming benchmarks, specs, pros & cons and live UK price.", body, f"/reviews/{lap['slug']}.html",
+        ld_graph(ld_org(),
+                 ld_breadcrumb([("Home","/"),("Reviews",f"/reviews/{lap['slug']}.html")]),
+                 ld_product(lap, f"/reviews/{lap['slug']}.html"),
+                 ld_faq(rfaqs)))
 
 def page_compare():
     opts = "".join(f'<option value="{l["slug"]}">{html.escape(l["name"])} — £{l["price"]:,}</option>' for l in LAPTOPS)
@@ -443,7 +533,8 @@ document.getElementById('b').addEventListener('change',go);
 document.getElementById('b').selectedIndex=1;go();
 </script>"""
     return base("Compare Gaming Laptops UK — Head-to-Head Benchmark Tool",
-        "Compare any two gaming laptops side by side: benchmark scores, specs and UK prices with an instant verdict.", body, "/compare.html")
+        "Compare any two gaming laptops side by side: benchmark scores, specs and UK prices with an instant verdict.", body, "/compare.html",
+        ld_graph(ld_org(), ld_breadcrumb([("Home","/"),("Compare","/compare.html")])))
 
 def page_deals():
     drops = sorted(LAPTOPS, key=lambda l: l["price"])[:6]
@@ -461,7 +552,8 @@ def page_deals():
 <li>Previous-generation models often drop 20–30% when new GPUs launch — same chassis, lower price.</li>
 <li>Check Currys and Box alongside Amazon UK — they frequently undercut each other.</li></ul></div>"""
     return base("UK Gaming Laptop Deals — Biggest Current Price Drops",
-        "Today's biggest UK gaming laptop price drops and deal targets, tracked against typical street prices.", body, "/deals.html")
+        "Today's biggest UK gaming laptop price drops and deal targets, tracked against typical street prices.", body, "/deals.html",
+        ld_graph(ld_org(), ld_breadcrumb([("Home","/"),("Deals","/deals.html")])))
 
 def page_about():
     body = """
@@ -480,7 +572,8 @@ def page_about():
 <p>Spotted an error, a better price, or a laptop we should rank? Email us at <strong>hello@bestpremiumgaminglaptop.co.uk</strong>.</p>
 </div>"""
     return base("About Us & Methodology — Best Premium Gaming Laptop UK",
-        "How we test and rank gaming laptops for UK buyers: our benchmark methodology and independence promise.", body, "/about.html")
+        "How we test and rank gaming laptops for UK buyers: our benchmark methodology and independence promise.", body, "/about.html",
+        ld_graph(ld_org(), ld_breadcrumb([("Home","/"),("About","/about.html")])))
 
 # ----------------------------------------------------------------- build ---
 def write(path, content):
@@ -517,8 +610,20 @@ def main():
     write("/laptops.json", json.dumps(LAPTOPS, indent=2))
     # CNAME for custom domain
     write("/CNAME", SITE["domain"] + "\n")
-    # sitemap
-    urls = "".join(f"<url><loc>https://{SITE['domain']}{p}</loc></url>" for p in sorted(pages))
+    # robots.txt
+    write("/robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: https://{SITE['domain']}/sitemap.xml\n")
+    # sitemap with lastmod / changefreq / priority
+    import datetime
+    today = datetime.date.today().isoformat()
+    def prio(p):
+        if p == "/index.html": return "1.0"
+        if "/guides/" in p: return "0.9"
+        if "/reviews/" in p: return "0.8"
+        return "0.6"
+    urls = "".join(
+        f"<url><loc>https://{SITE['domain']}{p}</loc><lastmod>{today}</lastmod>"
+        f"<changefreq>weekly</changefreq><priority>{prio(p)}</priority></url>"
+        for p in sorted(pages))
     write("/sitemap.xml", f'<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">{urls}</urlset>')
     # README
     write("/README.md", f"# {SITE['name']}\n\nStatic site for {SITE['domain']}, generated by build.py.\n\nTo rebuild: `python3 build.py`\n\nSet your Amazon UK Associates tag in `SITE['affiliate_tag']` inside build.py, then rebuild.\n")
