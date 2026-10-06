@@ -6,7 +6,7 @@ SITE = {
     "name": "Best Premium Gaming Laptop",
     "domain": "bestpremiumgaminglaptop.co.uk",
     "tagline": "The UK's data-driven guide to premium gaming laptops",
-    "affiliate_tag": "bestpremiumg-21",  # <-- REPLACE with your Amazon UK Associates tag
+    "affiliate_tag": "uktech20-21",  # Zeeshan's Amazon UK Associates tag
     "year": "2026",
 }
 
