@@ -1,6 +1,7 @@
 [
   {
     "slug": "asus-rog-strix-g16-2026",
+    "asin": "B0FL8XL3YS",
     "brand": "ASUS",
     "name": "ASUS ROG Strix G16 (2026)",
     "gpu": "NVIDIA RTX 4070 140W",
@@ -27,6 +28,7 @@
   },
   {
     "slug": "lenovo-legion-pro-5",
+    "asin": "B0CC3THQBS",
     "brand": "Lenovo",
     "name": "Lenovo Legion Pro 5 (2026)",
     "gpu": "NVIDIA RTX 4070 140W",
@@ -79,6 +81,7 @@
   },
   {
     "slug": "razer-blade-16",
+    "asin": "B0H7XSD3QN",
     "brand": "Razer",
     "name": "Razer Blade 16 (2026)",
     "gpu": "NVIDIA RTX 4080 175W",
@@ -105,6 +108,7 @@
   },
   {
     "slug": "acer-predator-helios-neo-16",
+    "asin": "B0BW94XWN4",
     "brand": "Acer",
     "name": "Acer Predator Helios Neo 16",
     "gpu": "NVIDIA RTX 4060 105W",
@@ -131,6 +135,7 @@
   },
   {
     "slug": "hp-omen-16",
+    "asin": "B0G4S44PQJ",
     "brand": "HP",
     "name": "HP Omen 16",
     "gpu": "NVIDIA RTX 4060 105W",
@@ -157,6 +162,7 @@
   },
   {
     "slug": "msi-katana-15",
+    "asin": "B0C9FRSDBQ",
     "brand": "MSI",
     "name": "MSI Katana 15",
     "gpu": "NVIDIA RTX 4050 105W",
@@ -184,6 +190,7 @@
   },
   {
     "slug": "asus-tuf-gaming-a15",
+    "asin": "B0DJV6GF83",
     "brand": "ASUS",
     "name": "ASUS TUF Gaming A15",
     "gpu": "NVIDIA RTX 4050 95W",
@@ -263,6 +270,7 @@
   },
   {
     "slug": "dell-g16",
+    "asin": "B0DPKLJ4CV",
     "brand": "Dell",
     "name": "Dell G16 (2026)",
     "gpu": "NVIDIA RTX 4060 105W",
@@ -289,6 +297,7 @@
   },
   {
     "slug": "msi-stealth-16-studio",
+    "asin": "B0CS6WHBM7",
     "brand": "MSI",
     "name": "MSI Stealth 16 Studio",
     "gpu": "NVIDIA RTX 4070 105W",
@@ -315,6 +324,7 @@
   },
   {
     "slug": "asus-rog-zephyrus-g14",
+    "asin": "B0GKPZZSKX",
     "brand": "ASUS",
     "name": "ASUS ROG Zephyrus G14 (2026)",
     "gpu": "NVIDIA RTX 4060 100W",
@@ -367,6 +377,7 @@
   },
   {
     "slug": "hp-omen-transcend-14",
+    "asin": "B0G39ZN71Z",
     "brand": "HP",
     "name": "HP Omen Transcend 14",
     "gpu": "NVIDIA RTX 4060 105W",
@@ -393,6 +404,7 @@
   },
   {
     "slug": "acer-nitro-16",
+    "asin": "B0CY3SS4VL",
     "brand": "Acer",
     "name": "Acer Nitro 16",
     "gpu": "NVIDIA RTX 4050 100W",
@@ -420,6 +432,7 @@
   },
   {
     "slug": "msi-cyborg-15",
+    "asin": "B0CTKWFF37",
     "brand": "MSI",
     "name": "MSI Cyborg 15",
     "gpu": "NVIDIA RTX 4060 105W",
